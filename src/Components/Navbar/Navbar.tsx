@@ -1,5 +1,5 @@
 import React from "react";
-import flag from "../../assets/img/icons/common/flag-of-nicaragua.png";
+const flag = require("../../assets/img/icons/common/flag-of-nicaragua.png");
 const NavbarComponent = () => {
   return (
     <nav className="navbar navbar-top  navbar-expand navbar-dark bg-primary">
@@ -9,11 +9,13 @@ const NavbarComponent = () => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link pr-0"
-                href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj7u5zWr5TqAhULTTABHan9BCgQFjAKegQIAhAC&url=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FNicaragua&usg=AOvVaw0DgH4pbrZ8v8UmShJOSrOM"
+                href="https://www.nicatechsolutions.com"
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="media align-items-center">
                   <span className="avatar avatar-sm rounded-circle">

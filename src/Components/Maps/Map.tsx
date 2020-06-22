@@ -1,11 +1,11 @@
 import React from "react";
-import {
+const {
   GoogleMap,
   LoadScript,
   MarkerClusterer,
   Marker,
-} from "@react-google-maps/api";
-import mapCluster from "../../assets/img/icons/common/map-cluster-icon.png";
+} = require("@react-google-maps/api");
+const mapCluster = require("../../assets/img/icons/common/map-cluster-icon.png");
 require("dotenv").config();
 
 const containerStyle = {
@@ -31,7 +31,7 @@ const MapComponent = ({ coords }: any) => {
           zoom={5.5}
         >
           <MarkerClusterer options={options}>
-            {(cluster) => {
+            {(cluster: any) => {
               return coords.map((prop: any, i: number) => {
                 const { title } = prop.properties;
                 const { coordinates } = prop.geometry;
