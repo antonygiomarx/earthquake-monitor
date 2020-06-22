@@ -5,7 +5,6 @@ import moment from "moment";
 
 function App() {
   const [markers, setMarkers] = useState([]);
-  let count = 0;
 
   let starttime: string | Array<string> = moment()
     .subtract(6, "month")
@@ -27,7 +26,7 @@ function App() {
       const { features } = data;
       setMarkers(features);
     })();
-  }, [count, endtime, starttime]);
+  }, [endtime, markers, starttime]);
   return <PanelComponent coords={markers} />;
 }
 

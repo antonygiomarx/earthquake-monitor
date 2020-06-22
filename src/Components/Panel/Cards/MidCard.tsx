@@ -24,10 +24,10 @@ const MidCardComponent = ({ coords }: any) => {
                 </tr>
               </thead>
               <tbody>
-                {coords.map((coord: any) => {
+                {coords.map((coord: any, i: number) => {
                   const { properties, geometry } = coord;
                   return (
-                    <tr>
+                    <tr key={i}>
                       <th scope="row">{properties.title}</th>
                       <td>
                         {moment(properties.time).startOf("hour").fromNow()}
