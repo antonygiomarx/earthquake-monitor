@@ -22,7 +22,7 @@ const NavbarComponent = () => {
                 </span>
                 <div className="media-body  ml-2  d-none d-lg-block">
                   <span className="mb-0 text-sm  font-weight-bold text-uppercase">
-                    Nicaragua
+                    Made from Nicaragua
                   </span>
                 </div>
               </div>

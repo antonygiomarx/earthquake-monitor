@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import PanelComponent from "./Components/Panel/Panel";
 import moment from "moment";
@@ -18,15 +18,16 @@ function App() {
   starttime = `${starttime[2]}-${starttime[0]}-${starttime[1]}`;
   endtime = `${endtime[2]}-${endtime[0]}-${endtime[1]}`;
 
-  useEffect(() => {
+  setInterval(() => {
     (async () => {
       const { data } = await axios.get(
-        `https://earthquake.usgs.gov/fdsnws/event/1/query?minmagnitude=5&format=geojson&starttime=${starttime}&endtime=${endtime}&latitude=12.865416&longitude=-85.207229&maxradiuskm=750`
+        `https://earthquake.usgs.gov/fdsnws/event/1/query?minmagnitude=1&format=geojson&starttime=${starttime}&endtime=${endtime}&latitude=12.865416&longitude=-85.207229&maxradiuskm=1000`
       );
       const { features } = data;
       setMarkers(features);
     })();
-  }, [endtime, markers, starttime]);
+  }, 5000);
+
   return <PanelComponent coords={markers} />;
 }
 

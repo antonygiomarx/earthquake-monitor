@@ -12,6 +12,9 @@ const BigCardComponent = ({ coords }: any) => {
                 Vista General
               </h6>
               <h5 className="h3 text-white mb-0">Mapa de Sismos</h5>
+              <h6 className="text-uppercase text-muted ls-1 mb-1">
+                Último mes
+              </h6>
             </div>
           </div>
         </div>

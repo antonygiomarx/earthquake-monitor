@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment";
+import TableComponent from "./Table";
 
 const MidCardComponent = ({ coords }: any) => {
   return (
@@ -8,36 +8,18 @@ const MidCardComponent = ({ coords }: any) => {
         <div className="card-header bg-transparent">
           <div className="row align-items-center">
             <div className="col">
-              <h6 className="text-uppercase text-muted ls-1 mb-1">Histórico</h6>
+              <h6 className="text-uppercase text-muted ls-1 mb-1">
+                Histórico (Sismos mayores a 1 grado en la escala de Richter)
+              </h6>
               <h5 className="h3 mb-0">Últimos 6 meses</h5>
             </div>
           </div>
         </div>
         <div className="card-body">
-          <div className="table-responsive">
-            <table className="table align-items-center table-flush">
-              <thead className="thead-light">
-                <tr>
-                  <th scope="col">Lugar</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Lat/Lng</th>
-                </tr>
-              </thead>
-              <tbody>
-                {coords.map((coord: any, i: number) => {
-                  const { properties, geometry } = coord;
-                  return (
-                    <tr key={i}>
-                      <th scope="row">{properties.title}</th>
-                      <td>
-                        {moment(properties.time).startOf("hour").fromNow()}
-                      </td>
-                      <td>{`${geometry.coordinates[1]}, ${geometry.coordinates[0]}`}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+          <div className="overflow-auto">
+            <div className="table-wrapper-scroll">
+              <TableComponent data={coords} />
+            </div>
           </div>
         </div>
       </div>

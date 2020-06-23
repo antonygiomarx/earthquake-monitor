@@ -8,17 +8,13 @@ const MiniCardComponent = ({ coords }: any) => {
   const lastSixMonths: any[] = [];
   coords.forEach((props: any) => {
     const { properties } = props;
-
     if (
-      moment(properties.time).startOf("day").fromNow().trim() === "a day ago"
+      moment(properties.time).startOf("day").fromNow().trim() === "a day ago" ||
+      moment(properties.time).startOf("day").fromNow().trim().includes("hour")
     ) {
       lastDay.push(props);
     } else if (
-      moment(properties.time)
-        .startOf("days")
-        .fromNow()
-        .trim()
-        .includes("a day ago" || "days")
+      moment(properties.time).startOf("days").fromNow().trim().includes("days")
     ) {
       lastMonth.push(props);
     } else if (
