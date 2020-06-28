@@ -28,4 +28,4 @@ const BigCardComponent = ({ coords }: any) => {
   );
 };
 
-export default BigCardComponent;
+export default React.memo(BigCardComponent);

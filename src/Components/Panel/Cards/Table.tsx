@@ -56,4 +56,4 @@ const TableComponent = ({ data }: any) => {
   );
 };
 
-export default TableComponent;
+export default React.memo(TableComponent);

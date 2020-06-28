@@ -26,4 +26,4 @@ const MidCardComponent = ({ coords }: any) => {
     </div>
   );
 };
-export default MidCardComponent;
+export default React.memo(MidCardComponent);

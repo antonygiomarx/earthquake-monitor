@@ -63,4 +63,4 @@ const MiniCardComponent = ({ coords }: any) => {
     </div>
   );
 };
-export default MiniCardComponent;
+export default React.memo(MiniCardComponent);

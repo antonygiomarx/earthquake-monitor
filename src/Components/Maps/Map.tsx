@@ -38,7 +38,7 @@ const MapComponent = ({ coords }: any) => {
     }
   });
   return (
-    <div>
+    <>
       <LoadScript googleMapsApiKey={mapKey}>
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -69,7 +69,7 @@ const MapComponent = ({ coords }: any) => {
           </MarkerClusterer>
         </GoogleMap>
       </LoadScript>
-    </div>
+    </>
   );
 };
 

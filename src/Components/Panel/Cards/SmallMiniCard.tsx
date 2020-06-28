@@ -28,4 +28,4 @@ const SmallMiniCard = ({ className, calc, subtitle }: any) => {
     </div>
   );
 };
-export default SmallMiniCard;
+export default React.memo(SmallMiniCard);
