@@ -1,13 +1,11 @@
 import React from "react";
 import moment from "moment";
-require('dotenv').config()
 const {
   GoogleMap,
   LoadScript,
   MarkerClusterer,
   Marker,
 } = require("@react-google-maps/api");
-require("dotenv").config();
 
 const containerStyle = {
   height: "500px",
@@ -17,7 +15,7 @@ const containerStyle = {
 
 const initCoords = { lat: 12.1328201, lng: -86.2503967 };
 
-const mapKey = process.env.GOOGLE_MAP_KEY || "";
+const mapKey = process.env.REACT_APP_GOOGLE_MAP_KEY || "";
 const options = {
   imagePath:
     "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
