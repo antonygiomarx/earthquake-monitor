@@ -1,4 +1,4 @@
-This is a [React](https://reactjs.org/) project that seeks to simulate earthquakes in real time
+This is a [React](https://reactjs.org/) typescript project that seeks to simulate earthquakes in real time
 
 ## Getting Started
 
