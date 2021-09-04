@@ -31,7 +31,7 @@ export const useMarkers = () => {
     return () => {
       ac.abort();
     };
-  });
+  }, [endtime, starttime]);
 
   return markers;
 };
