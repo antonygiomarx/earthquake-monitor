@@ -1,7 +1,7 @@
 import React from "react";
 import TableComponent from "./Table";
 
-const MidCardComponent = ({ coords }: any) => {
+const MidCardComponent = () => {
   return (
     <div className="col-xl">
       <div className="card">
@@ -18,7 +18,7 @@ const MidCardComponent = ({ coords }: any) => {
         <div className="card-body">
           <div className="overflow-auto">
             <div className="table-wrapper-scroll">
-              <TableComponent data={coords} />
+              <TableComponent />
             </div>
           </div>
         </div>

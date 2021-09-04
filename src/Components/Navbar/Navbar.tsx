@@ -8,7 +8,7 @@ const NavbarComponent = () => {
           <li className="nav-item dropdown">
             <a
               className="nav-link pr-0"
-              href="https://www.nicatechsolutions.com"
+              href="https://twitter.com/antonygiomarx"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"

@@ -1,34 +1,16 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import PanelComponent from "./Components/Panel/Panel";
-import moment from "moment";
+import { MarkersContext } from "./context/coords.context";
+import { useMarkers } from "./hooks/useMarkers";
 
 function App() {
-  const [markers, setMarkers] = useState([]);
+  const markers = useMarkers();
 
-  let starttime: string | Array<string> = moment()
-    .subtract(6, "month")
-    .calendar()
-    .split("/");
-  let endtime: string | Array<string> = moment()
-    .add(1, "day")
-    .format("L")
-    .split("/");
-
-  starttime = `${starttime[2]}-${starttime[0]}-${starttime[1]}`;
-  endtime = `${endtime[2]}-${endtime[0]}-${endtime[1]}`;
-
-  setInterval(() => {
-    (async () => {
-      const { data } = await axios.get(
-        `https://earthquake.usgs.gov/fdsnws/event/1/query?minmagnitude=1&format=geojson&starttime=${starttime}&endtime=${endtime}&latitude=12.865416&longitude=-85.207229&maxradiuskm=1000`
-      );
-      const { features } = data;
-      setMarkers(features);
-    })();
-  }, 5000);
-
-  return <PanelComponent coords={markers} />;
+  return (
+    <MarkersContext.Provider value={markers}>
+      <PanelComponent />
+    </MarkersContext.Provider>
+  );
 }
 
 export default App;

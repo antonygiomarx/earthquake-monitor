@@ -1,7 +1,7 @@
 import React from "react";
-import MapComponent from "../../Maps/Map";
+import { MapComponent } from "../../Maps/Map";
 
-const BigCardComponent = ({ coords }: any) => {
+const BigCardComponent = () => {
   return (
     <div className="col-xl">
       <div className="card bg-default">
@@ -20,7 +20,7 @@ const BigCardComponent = ({ coords }: any) => {
         </div>
         <div className="card-body">
           <div className="col">
-            <MapComponent coords={coords} />
+            <MapComponent />
           </div>
         </div>
       </div>

@@ -1,6 +1,13 @@
 import React from "react";
+import { Eartquake } from "../../../models/marker.model";
 
-const SmallMiniCard = ({ className, calc, subtitle }: any) => {
+interface MinicardProps {
+  className: string;
+  calc: Eartquake[];
+  subtitle: string;
+}
+
+export const SmallMiniCard = ({ className, calc, subtitle }: MinicardProps) => {
   return (
     <div className="col-xl col-md-6">
       <div className="card card-stats">
@@ -28,4 +35,3 @@ const SmallMiniCard = ({ className, calc, subtitle }: any) => {
     </div>
   );
 };
-export default React.memo(SmallMiniCard);

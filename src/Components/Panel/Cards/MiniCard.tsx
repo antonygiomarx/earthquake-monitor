@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
-import SmallMiniCard from "./SmallMiniCard";
+import { SmallMiniCard } from "./SmallMiniCard";
+import { MarkersContext } from "../../../context/coords.context";
+import { Eartquake } from "../../../models/marker.model";
 
-const MiniCardComponent = ({ coords }: any) => {
-  const lastDay: any[] = [];
-  const lastMonth: string | any[] = [];
-  const lastSixMonths: any[] = [];
-  coords.forEach((props: any) => {
-    const { properties } = props;
+export const MiniCardComponent = () => {
+  const markers = useContext(MarkersContext);
+
+  const lastDay: Eartquake[] = [];
+  const lastMonth: Eartquake[] = [];
+  const lastSixMonths: Eartquake[] = [];
+
+  markers.forEach((marker) => {
+    // TODO: refactor this
+    const { properties } = marker;
     if (
       moment(properties.time).startOf("day").fromNow().trim() === "a day ago" ||
       moment(properties.time).startOf("day").fromNow().trim().includes("hour")
     ) {
-      lastDay.push(props);
+      lastDay.push(marker);
     } else if (
       moment(properties.time).startOf("days").fromNow().trim().includes("days")
     ) {
-      lastMonth.push(props);
+      lastMonth.push(marker);
     } else if (
       moment(properties.time).startOf("months").fromNow().trim() ===
         "2 months ago" ||
@@ -25,7 +31,7 @@ const MiniCardComponent = ({ coords }: any) => {
       "5 months ago" ||
       "6 months ago"
     ) {
-      lastSixMonths.push(props);
+      lastSixMonths.push(marker);
     }
   });
   return (
@@ -34,11 +40,8 @@ const MiniCardComponent = ({ coords }: any) => {
         <div className="header-body">
           <div className="row">
             <SmallMiniCard
-              className={
-                "icon icon-shape bg-gradient-red text-white rounded-circle shadow"
-              }
+              className="icon icon-shape bg-gradient-red text-white rounded-circle shadow"
               calc={lastDay}
-              title="TOTAL DE SISMOS"
               subtitle="Estadísticas del último día"
             ></SmallMiniCard>
             <SmallMiniCard
@@ -46,7 +49,6 @@ const MiniCardComponent = ({ coords }: any) => {
                 "icon icon-shape bg-gradient-red text-white rounded-circle shadow"
               }
               calc={[...lastMonth, ...lastDay]}
-              title="TOTAL DE SISMOS"
               subtitle="Estadísticas del último mes"
             ></SmallMiniCard>
             <SmallMiniCard
@@ -54,7 +56,6 @@ const MiniCardComponent = ({ coords }: any) => {
                 "icon icon-shape bg-gradient-orange text-white rounded-circle shadow"
               }
               calc={lastSixMonths}
-              title="TOTAL DE SISMOS"
               subtitle="Estadísticas de los últimos 6 meses"
             ></SmallMiniCard>
           </div>
@@ -63,4 +64,3 @@ const MiniCardComponent = ({ coords }: any) => {
     </div>
   );
 };
-export default React.memo(MiniCardComponent);

@@ -1,5 +1,7 @@
 import React from "react";
 import moment from "moment";
+import { useContext } from "react";
+import { MarkersContext } from "../../context/coords.context";
 const {
   GoogleMap,
   LoadScript,
@@ -21,8 +23,11 @@ const options = {
     "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
 };
 const lastMonth: any[] = [];
-const MapComponent = ({ coords }: any) => {
-  coords.forEach((prop: any) => {
+
+export const MapComponent = () => {
+  const markers = useContext(MarkersContext);
+
+  markers.forEach((prop: any) => {
     const { properties } = prop;
     if (
       moment(properties.time)
@@ -71,5 +76,3 @@ const MapComponent = ({ coords }: any) => {
     </>
   );
 };
-
-export default React.memo(MapComponent);

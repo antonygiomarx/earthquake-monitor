@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MDBDataTable } from "mdbreact";
 import moment from "moment";
+import { MarkersContext } from "../../../context/coords.context";
 
-const TableComponent = ({ data }: any) => {
+const TableComponent = () => {
+  const markers = useContext(MarkersContext);
+
   const columns = [
     {
       label: "Magnitud",
@@ -29,15 +32,15 @@ const TableComponent = ({ data }: any) => {
       width: 150,
     },
   ];
-  let information = data.map((data: any) => {
+  let information = markers.map((marker) => {
     return {
-      Magnitud: data.properties.mag,
-      Lugar: data.properties.title.split("-")[1],
-      Fecha: moment(data.properties.time).startOf("hour").fromNow(),
-      "Lat/Lng": `${data.geometry.coordinates[1]}, ${data.geometry.coordinates[0]}`,
+      Magnitud: marker.properties.mag,
+      Lugar: marker.properties.title.split("-")[1],
+      Fecha: moment(marker.properties.time).startOf("hour").fromNow(),
+      "Lat/Lng": `${marker.geometry.coordinates[1]}, ${marker.geometry.coordinates[0]}`,
     };
   });
-  information = {
+  const data = {
     columns,
     rows: information,
   };
@@ -48,7 +51,7 @@ const TableComponent = ({ data }: any) => {
       striped
       bordered
       small
-      data={information}
+      data={data}
       paging={false}
       responsive
       entries={100}
@@ -56,4 +59,4 @@ const TableComponent = ({ data }: any) => {
   );
 };
 
-export default React.memo(TableComponent);
+export default TableComponent;
