@@ -1,6 +1,6 @@
 import React from "react";
-import PanelComponent from "./Components/Panel/Panel";
-import { MarkersContext } from "./context/coords.context";
+import PanelComponent from "./components/Panel/Panel";
+import { MarkersContext } from "./context/marker.context";
 import { useMarkers } from "./hooks/useMarkers";
 
 function App() {

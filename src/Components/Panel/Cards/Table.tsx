@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { MDBDataTable } from "mdbreact";
 import moment from "moment";
-import { MarkersContext } from "../../../context/coords.context";
+import { MarkersContext } from "../../../context/marker.context";
 
 const TableComponent = () => {
   const markers = useContext(MarkersContext);

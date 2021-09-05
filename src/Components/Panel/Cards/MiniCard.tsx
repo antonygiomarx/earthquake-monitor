@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import moment from "moment";
 import { SmallMiniCard } from "./SmallMiniCard";
-import { MarkersContext } from "../../../context/coords.context";
+import { MarkersContext } from "../../../context/marker.context";
 import { Eartquake } from "../../../models/marker.model";
 
 export const MiniCardComponent = () => {
@@ -40,22 +40,18 @@ export const MiniCardComponent = () => {
         <div className="header-body">
           <div className="row">
             <SmallMiniCard
-              className="icon icon-shape bg-gradient-red text-white rounded-circle shadow"
-              calc={lastDay}
+              title="Total día"
+              count={lastDay.length}
               subtitle="Estadísticas del último día"
             ></SmallMiniCard>
             <SmallMiniCard
-              className={
-                "icon icon-shape bg-gradient-red text-white rounded-circle shadow"
-              }
-              calc={[...lastMonth, ...lastDay]}
+              title="Total mes"
+              count={[...lastMonth, ...lastDay].length}
               subtitle="Estadísticas del último mes"
             ></SmallMiniCard>
             <SmallMiniCard
-              className={
-                "icon icon-shape bg-gradient-orange text-white rounded-circle shadow"
-              }
-              calc={lastSixMonths}
+              title="Total 6 meses"
+              count={lastSixMonths.length}
               subtitle="Estadísticas de los últimos 6 meses"
             ></SmallMiniCard>
           </div>
