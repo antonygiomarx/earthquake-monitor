@@ -1,7 +1,7 @@
 import React from "react";
 import AboutComponent from "./About";
 
-const FooterComponent = ({ brand }: { brand: string }) => {
+export const FooterComponent = ({ brand }: { brand: string }) => {
   return (
     <footer className="footer pt-0">
       <div className="row align-items-center justify-content-lg-between">
@@ -23,5 +23,3 @@ const FooterComponent = ({ brand }: { brand: string }) => {
     </footer>
   );
 };
-
-export default FooterComponent;

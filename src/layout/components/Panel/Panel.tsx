@@ -1,9 +1,9 @@
 import React from "react";
-import FooterComponent from "./Footer/Footer";
-import BigCardComponent from "./Cards/BigCard";
+import { FooterComponent } from "./Footer/Footer";
+import { BigCardComponent } from "./Cards/BigCard";
 import { MiniCardComponent } from "./Cards/MiniCard";
-import MidCardComponent from "./Cards/MidCard";
-import NavbarComponent from "../Navbar/Navbar";
+import { MidCardComponent } from "./Cards/MidCard";
+import { NavbarComponent } from "../Navbar/Navbar";
 
 const PanelComponent = () => {
   return (

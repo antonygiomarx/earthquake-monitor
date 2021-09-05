@@ -1,13 +1,20 @@
 import React from "react";
 import moment from "moment";
-import { useContext } from "react";
-import { MarkersContext } from "../../../context/marker.context";
-const {
+import { nanoid as uuid } from "nanoid";
+import {
   GoogleMap,
   LoadScript,
   MarkerClusterer,
   Marker,
-} = require("@react-google-maps/api");
+} from "@react-google-maps/api";
+
+import { useContext } from "react";
+import { MarkersContext } from "../../../context/marker.context";
+import { Eartquake } from "../../../models/marker.model";
+import { parseCoordinates } from "../../../utils/coordinates";
+
+const marker =
+  "https://unpkg.com/@googlemaps/markerclustererplus@1.0.3/images/m3.png";
 
 const containerStyle = {
   height: "500px",
@@ -18,11 +25,8 @@ const containerStyle = {
 const initCoords = { lat: 12.1328201, lng: -86.2503967 };
 
 const mapKey = process.env.REACT_APP_GOOGLE_MAP_KEY || "";
-const options = {
-  imagePath:
-    "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
-};
-const lastMonth: any[] = [];
+
+const lastMonth = [] as Eartquake[];
 
 export const MapComponent = () => {
   const markers = useContext(MarkersContext);
@@ -48,26 +52,30 @@ export const MapComponent = () => {
         center={initCoords}
         zoom={5.5}
       >
-        <MarkerClusterer options={options}>
-          {(cluster: Cluster) => {
-            return lastMonth.map((prop: any, i: number) => {
-              const { title } = prop.properties;
-              const { coordinates } = prop.geometry;
-              const { properties } = prop;
-              const finalCoord = {
-                lat: coordinates[1],
-                lng: coordinates[0],
-              };
-              return (
+        <MarkerClusterer>
+          {(cluster) => {
+            return lastMonth.map(
+              ({
+                geometry: { coordinates },
+                properties: { title, time, mag },
+              }) => (
                 <Marker
-                  position={finalCoord}
-                  title={`${title} - ${moment(properties.time)
+                  position={parseCoordinates(coordinates)}
+                  title={`${title} - ${moment(time)
                     .startOf("hours")
                     .fromNow()}`}
-                  key={i}
+                  key={uuid()}
+                  clusterer={cluster}
+                  icon={marker}
+                  options={{
+                    label: {
+                      text: `${mag}`,
+                      color: "white",
+                    },
+                  }}
                 />
-              );
-            });
+              )
+            );
           }}
         </MarkerClusterer>
       </GoogleMap>
