@@ -1,7 +1,7 @@
 import React from "react";
 import TableComponent from "./Table";
 
-const MidCardComponent = () => {
+export const MidCardComponent = () => {
   return (
     <div className="col-xl">
       <div className="card">
@@ -26,4 +26,3 @@ const MidCardComponent = () => {
     </div>
   );
 };
-export default React.memo(MidCardComponent);

@@ -1,6 +1,8 @@
 import React from "react";
+
 const flag = require("../../../assets/img/icons/common/flag-of-nicaragua.png");
-const NavbarComponent = () => {
+
+export const NavbarComponent = () => {
   return (
     <nav className="navbar navbar-top  navbar-expand navbar-dark bg-primary">
       <div className="container-fluid">
@@ -33,5 +35,3 @@ const NavbarComponent = () => {
     </nav>
   );
 };
-
-export default NavbarComponent;

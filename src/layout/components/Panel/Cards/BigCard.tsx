@@ -1,7 +1,7 @@
 import React from "react";
 import { MapComponent } from "../../Maps/Map";
 
-const BigCardComponent = () => {
+export const BigCardComponent = () => {
   return (
     <div className="col-xl">
       <div className="card bg-default">
@@ -27,5 +27,3 @@ const BigCardComponent = () => {
     </div>
   );
 };
-
-export default React.memo(BigCardComponent);
