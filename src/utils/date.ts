@@ -17,4 +17,6 @@ export class DateGenerator {
   }
 }
 
-export class DateHandler {}
+export class DateHandler {
+  getDaysAgo(date: Date) {}
+}

@@ -5,7 +5,7 @@ import { MiniCardComponent } from "./Cards/MiniCard";
 import MidCardComponent from "./Cards/MidCard";
 import NavbarComponent from "../Navbar/Navbar";
 
-const PanelComponent = ({ coords }: any) => {
+const PanelComponent = () => {
   return (
     <div className="main-content" id="panel">
       <NavbarComponent />
