@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { useContext } from "react";
-import { MarkersContext } from "../../context/marker.context";
+import { MarkersContext } from "../../../context/marker.context";
 const {
   GoogleMap,
   LoadScript,

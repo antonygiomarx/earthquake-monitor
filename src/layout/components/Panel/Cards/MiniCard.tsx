@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import moment from "moment";
 import { SmallMiniCard } from "./SmallMiniCard";
-import { MarkersContext } from "../../../context/marker.context";
-import { Eartquake } from "../../../models/marker.model";
+import { MarkersContext } from "../../../../context/marker.context";
+import { Eartquake } from "../../../../models/marker.model";
 
 export const MiniCardComponent = () => {
   const markers = useContext(MarkersContext);
